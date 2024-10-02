@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Map;
 
 public class FileService {
+Map<String, Integer > pokerCount= new HashMap<>();
+	    	  String[] allOfIt= new String[2];
 
-	
 	 public void readFileToConsole(String fileName) throws IOException    {
-	    	Map<String, String > pokerCount= new HashMap<>();
 	    	
 	    	BufferedReader reader= new BufferedReader(new FileReader("PokerHands.csv"));
 	    	
@@ -19,37 +19,34 @@ public class FileService {
 	    	reader.readLine();
 	    	while((lines=reader.readLine())!=null) {
 	    		System.out.println(lines);
-	    	    	String[] allOfIt= new String[44];
+	    	    	
 	    	    	
 	    	    	allOfIt= lines.split(",");
 	    	    	
 	    	    	System.out.println(Arrays.toString(allOfIt));
-	    	    	int i=0;
+	    	    	
+	    	    	
+	    	     Integer counter=0;
+String person=allOfIt[0];
+ pokerCount.put(person,counter);
+ System.out.println(pokerCount);	
+ String hand="FLUSH";
+ for (String firstHand:allOfIt) {
+	 		pokerCount.put(person, 1);
+	 		if(firstHand.contains(hand)) {
+	 			System.out.println("found it ");
+	 			
+	 			pokerCount.put(person,pokerCount.get(person)+1);
+	 			
+	    	}
+	 	
+	 		
+	    	  
+	    pokerCount.forEach((key, value)-> System.out.println("Person is:" + key +"number of time it is found"+ value));		
+}	
+	 	
 
+	    	}
+	 }
+}
 	 
-
- pokerCount.put(allOfIt[0],allOfIt[1]);
- System.out.println(pokerCount);
-	    	
-	    }
-	    	
-	    	Integer hand= pokerCount.size();
-	    	System.out.println(hand);
-	    	String playerName="Patrick Stewart";
-	     int i=0;
-	    	
-	    	pokerCount.forEach((playerName1,value)-> 
-	    	{if(pokerCount.containsValue("FLUSH")) {
-			
-			
-			
-	};
-	if (playerName!= null) {
-		pokerCount.put(playerName,"i"+1);
-	}
-	    	
-
-		
-});
-}
-}
