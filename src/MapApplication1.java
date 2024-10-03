@@ -16,6 +16,9 @@ public class MapApplication1 {
     
     try {
 		fileService.readFileToConsole("PokerHands.csv");
+		fileService.updateKey(fileService.pokerCount, fileService.allOfIt);
+		fileService.updateValue(fileService.pokerCount, fileService.allOfIt);
+		fileService.removeKeyValuePair(fileService.pokerCount, fileService.allOfIt);
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
